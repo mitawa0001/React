@@ -8,7 +8,7 @@ import { About } from './MyCompo/About';
 
 import React, { useState } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
@@ -48,27 +48,33 @@ function App() {
 
   }
   const [todos, setTodos] = useState([])
+
   return (
-    <>
-      <Router>
-        <Header title="My Todos List" searchBar={false} />
-        <Route>
-          <Route exact path="/" render={() => {
-            return (
-              <>
-                <AddTodo addTodo={addTodo} />
-                <Todos todos={todos} onDelete={onDelete} />
-              </>
-          }}>
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-        </Route>
-        <Footer />
-      </Router>
-    </>
-  );
+    <BrowserRouter>
+    <Header title="My Todos List" searchBar={false} />
+    
+    <Footer/>
+      <Routes>
+        <Route path="/About" element={<About />} />
+        <Route path="/Todos" element={<AddTodo addTodo={addTodo} />} />
+        <Route path="/Todoitem" element={<Todos todos={todos} onDelete={onDelete} />} />
+      </Routes>
+     
+    </BrowserRouter>
+
+  )
+
+
+
+
+  // <>
+
+  //   <Header title="My Todos List" searchBar={false} />
+  //   <AddTodo addTodo={addTodo} />
+  //   <Todos todos={todos} onDelete={onDelete} />
+  //   <Footer/>
+  // </>
+
 }
 
 export default App;

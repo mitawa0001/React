@@ -4,7 +4,7 @@ import { TodoItem } from "./TodoItem";
 export const Todos = (props) => {
   return (
 
-    <div className=" container flex-wrap d-flex justify-content-between">
+    <div className=" container d-flex flex-column bd-highlight mb-3">
       {/* <h2 className="text-center my-5 h1"> Heading</h2> */}
 
       {props.todos.length === 0 ? "no found here" :
