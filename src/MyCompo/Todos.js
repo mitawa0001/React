@@ -13,8 +13,6 @@ export const Todos = (props) => {
           <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete} />
         ))}
 
-
-
     </div>
 
   )
